@@ -1,18 +1,23 @@
 package sg.edu.ntu.m3project.m3project.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
-
-import sg.edu.ntu.m3project.m3project.entity.UserEntity;
-import sg.edu.ntu.m3project.m3project.helper.ResponseMessage;
-import sg.edu.ntu.m3project.m3project.repository.UserRepository;
-
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.http.ResponseEntity;
 import org.springframework.http.HttpStatus;
 
 import java.util.List;
 import java.util.Optional;
 
+import sg.edu.ntu.m3project.m3project.repository.UserRepository;
+import sg.edu.ntu.m3project.m3project.entity.UserEntity;
+import sg.edu.ntu.m3project.m3project.helper.ResponseMessage;
+
+@CrossOrigin
 @RestController
 @RequestMapping("/users")
 public class UserController {
