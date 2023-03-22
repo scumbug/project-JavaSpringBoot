@@ -8,14 +8,10 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
-import sg.edu.ntu.m3project.m3project.helper.ResponseMessage;
 import sg.edu.ntu.m3project.m3project.entity.ConcertEntity;
+import sg.edu.ntu.m3project.m3project.helper.ResponseMessage;
 import sg.edu.ntu.m3project.m3project.repository.ConcertRepository;
 
 @RestController
@@ -25,7 +21,7 @@ public class ConcertController {
     @Autowired
     ConcertRepository concertRepo;
 
-    @RequestMapping(method = RequestMethod.GET)
+    @GetMapping
     public ResponseEntity findAllAvailable() {
 
         try {
@@ -49,7 +45,7 @@ public class ConcertController {
 
     }
 
-    @RequestMapping(value = "/history", method = RequestMethod.GET)
+    @GetMapping("/history")
     public ResponseEntity findAll() {
 
         try {
@@ -71,7 +67,7 @@ public class ConcertController {
 
     }
 
-    @RequestMapping(value = "/{concertId}", method = RequestMethod.GET)
+    @GetMapping("/{concertId}")
     public ResponseEntity findById(@PathVariable int concertId) {
 
         try {
@@ -92,7 +88,7 @@ public class ConcertController {
 
     }
 
-    @RequestMapping(method = RequestMethod.POST)
+    @PostMapping
     public ResponseEntity create(@RequestBody ConcertEntity concert) {
         try {
             ConcertEntity newConcert = concertRepo.save(concert);
@@ -109,7 +105,7 @@ public class ConcertController {
         }
     }
 
-    @RequestMapping(value = "/{concertId}", method = RequestMethod.PUT)
+    @PutMapping("/{concertId}")
     public ResponseEntity update(@RequestBody ConcertEntity concert, @PathVariable int concertId) {
 
         try {
