@@ -50,7 +50,7 @@ class TestController (val seatService: SeatService){
     }
 
     @GetMapping
-    fun findAll(): List<SeatEntity> = seatService.findAll()
+    fun findAll(): List<SeatEntity?> = seatService.findAll()
 
     @GetMapping("/{seatId}")
     fun findById(@PathVariable seatId:String) = seatService.findById(seatId)

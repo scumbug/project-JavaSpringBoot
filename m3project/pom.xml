@@ -76,7 +76,7 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 				<!-- Configure location of main class to run -->
-				<configuration>    
+				<configuration>
             		<mainClass>sg.edu.ntu.m3project.m3project.M3projectApplication</mainClass>
         		</configuration>
 			</plugin>
